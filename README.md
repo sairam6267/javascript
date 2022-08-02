@@ -415,8 +415,8 @@ Arrow function is another way of declaration of function.It works similar to the
 ```javascript
 // single line arroe function
 let arrow = (a,b) => a+b ; // expression on the right side
-console.log(arroe)
-// multiline arroe function
+console.log(arrow)
+// multiline arrow function
 let marrow = (a,b) =>{
   let c = 10;
   let d = 12;
