@@ -174,3 +174,254 @@ Non-primitive data types are developer definable . It is collection of all primi
  ```
 
  <b>Note:</b> check the type of data by using the function <i>typeof(variable_name)</i>
+
+ ## <b>Conditions</b>
+
+Sometime we have to perform opertions based on conditons so in that case we have three different clauses being used combined or individual.<b>if,else if,elif</b> and one more specical operator provides by javascript is question mark operatot <b>"?"</b>lets see the difference in code.
+
+<b>Clauses</b>
+```javascript
+let num = 22;
+if (num>22){
+    console.log("number is greater than 22");
+} else if(num<22 ) {
+    console.log("number is less than 22");
+} else{
+    console.log("number not satisfied");
+}
+//  number not satisfied
+```
+
+logical operators are used if single clause statement has to statisfy multiple conditions.
+
+```javascript
+let a =10;
+let b = 15;
+
+if (a == 10 && b<20){
+    console.log("conditional && operator satisfied");
+}
+// conditional && operator satisfied
+if (a == 10 || b<15){
+    console.log("conditional  operator satisfied");
+}
+// conditional  operator satisfied
+```
+
+<b>conditional operator (?)</b>
+Conditonal operator same works similar to the clauses but way of writing code is different.it returns the true value.
+```javascript
+let age =  18;
+
+let message = (age < 3) ? 'Hi, baby!' :
+  (age < 18) ? 'Hello!' :
+  (age < 100) ? 'Greetings!' :
+  'What an unusual age!';
+
+console.log( message );
+// Greetings!
+```
+
+if loks like this using clauses
+```javascript
+if (age < 3) {
+  message = 'Hi, baby!';
+} else if (age < 18) {
+  message = 'Hello!';
+} else if (age < 100) {
+  message = 'Greetings!';
+} else {
+  message = 'What an unusual age!';
+}
+```
+ 
+# <b>Loops </b>
+
+In any programming language loops are used to repeat the same code multiple times . This can happen through iteration process, one execution of the loop is called iteration. loops are very helpful in the case of same process has to do repeatedly.There are different types of loops.
+
+### <b>for loop </b>
+
+for loop is used when number of iterations are defined. It only loops limited times based on range. javascript for loop has four parts.
+
+1. begin              : Executes once upon entering the loop.
+2. condition          : Checked before every loop iteration. If false, the loop stops.
+3. incrementation     : Executes after the block on each iteration.
+4. block              : Runs again and again still the condition is true. 
+
+```javascript
+// for loop syntax
+for (begin;condition;incrementation){
+  // block
+}
+
+for (let i =0;i<length("javascript"),i++){
+  console.log(i)
+}
+```
+
+### Skipping the foor loop parts
+
+In for loop we can skip any part , if that part is declared before..
+
+```javascript
+let x = 0
+for(;x<5;x++){
+  console.log(x)
+}
+let j = 0
+// skip incrementation
+for(;j<6;){
+  console.log(j++)
+}
+//  create infinite loop by skipping all the parts
+for(;;){
+  console.log("js")
+}
+```
+### <b> while loop </b>
+
+while loop is used when loop has to run infinite . These loop is important if program has to run long time without break example in program which has scheduler. 
+
+```javascript
+while (condition) {
+  // block code
+}
+
+let i = 0;
+while (i < 3) { 
+  console.log(i);
+  i++;
+}
+// shows 0, then 1, then 2
+```
+
+### <b>do while loop </b>
+Do while loop first executes the body and checks the condition . This form of syntax should only be used when you want the body of the loop to execute at least once regardless of the condition being truth
+
+```javascript
+let k = 0;
+do {
+  console.log(k); // first executes the block
+  k++;
+} while (k < 2);  // check the condition
+```
+
+### <b> Break and Continue statements in loops </b>
+
+1. break : Basically loop dont exit until the condition becomes false. so do force exit in the loop we can use break statement inside the block.
+
+```javascript
+let f = 0;
+while (f < 10) { 
+  console.log(f);
+  if (f==2){
+    console.log("forced the  loop to exit ")
+    break; // break statement
+  }
+  f++;
+}
+```
+2. continue : continue statement is used when we want to skip the iteration if condition becomes false or true, it skips the current loop and executes the next iteration.
+
+```javascript
+for(j=0;j<5;j++){
+    if(j==3){
+        console.log(`"${j} iteration has skipped"`);
+        continue;  // continue statement
+    }
+    console.log(j)
+}
+```
+### <b>switch statement </b>
+Switch  is used when if statement has to compare multiple times, switch has multiple case blocks . switch can be replaced by multiple if statement
+
+```javascript
+switch (variable_name){ 
+  case condition_value: //  case block
+    break;
+}
+
+// Example
+let variable = "javascript";
+switch (variable){
+  case "javascript":
+    console.log(`${variable} matches the case`);
+  case String:
+    console.log(`${variable} is a string`);
+    break;
+  case int:
+    break;
+}
+// javascript matches the case
+// javascript is a string
+```
+
+Rewrite above code in if condition
+```javascript
+let variable = "javascript";
+if (variable === "javascript"){
+  console.log(`${variable} matches the case`);
+}
+if (typeof(variable) === "string"){
+  console.log(`${variable} is a string`);
+}
+if (typeof(variable)=== Number){
+ 
+}
+```
+
+# <b>Functions</b>
+
+To achieve the DRY (Dont repeat yourself) we have to use the functions. Functions are written once and called multiple times in the code this is called Dont repeat yourself . In the function we can pass the arguments as parameter which can be used inside the function and return the value. Only local variables can access inside the function outside the function called global variables which can access inside the function.
+
+```javascript
+// function declaration
+function javascript(arg1,arg2,arg3){ // arguments
+  // block of code
+}
+
+let global_var = 10;  // can access any where in the script
+
+function add(a1,a2,a3){
+  let local_var = 5 ; // can access only inside the script
+  add_value = a1+a2+a3+local_var+global_var;
+  return add_value
+}
+
+let function_val = add(1,2,3)
+console.log(function_val)  
+```
+Another way of writing function is function expression , it means declaring the function using the variable. this type of format only used when
+execution reaches it and is usable only from that moment . it can be mostly written inside the function.There is no restriction to use inside the function only it can write oustide the function also
+
+```javascript
+// Function Expression
+let add = function(a,b){ // function declared to the variable
+    return a+b
+};
+console.log(add(1,2))
+
+function sub(v1,v2){
+  let mult = function(m1,m2){ // function expression
+    return m1*m2
+  };
+  return v1-v2+mult(v1,v2)
+}
+
+console.log(sub(5,4))
+```
+Arrow function is another way of declaration of function.It works similar to the function declaration but there is diffrence in the syntax and it for simple single line function evaluates expression on the right side of the function.
+
+```javascript
+// single line arroe function
+let arrow = (a,b) => a+b ; // expression on the right side
+console.log(arroe)
+// multiline arroe function
+let marrow = (a,b) =>{
+  let c = 10;
+  let d = 12;
+  add = c+d+a+b
+  return add
+}
+console.log(marrow(1,-2))
+```
