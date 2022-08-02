@@ -259,7 +259,7 @@ for (let i =0;i<length("javascript"),i++){
 }
 ```
 
-### Skipping the foor loop parts
+### Skipping the for loop parts
 
 In for loop we can skip any part , if that part is declared before..
 
